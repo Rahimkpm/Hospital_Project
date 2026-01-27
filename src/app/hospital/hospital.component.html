@@ -1,0 +1,93 @@
+<div class="container mt-4">
+
+  <!-- Add Hospital Button -->
+  <a
+    
+    data-bs-toggle="modal"
+    data-bs-target="#hospitalModal"
+    href="#hospitalModal"
+    (click)="openModal()">
+    + Add Hospital
+</a>
+<!-- 
+  Hospital List
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of hospitals">
+        <td>{{ h.hospitalName }}</td>
+        <td>{{ h.address }}</td>
+        <td>{{ h.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- Modal -->
+<div class="modal fade" id="hospitalModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form [formGroup]="hospitalForm" (ngSubmit)="submit()">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Add Hospital</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- Hospital Name -->
+          <div class="mb-3">
+            <label class="form-label">Hospital Name</label>
+            <input type="text" class="form-control"
+                   formControlName="hospitalName">
+            <small class="text-danger"
+              *ngIf="hospitalForm.get('hospitalName')?.touched &&
+                     hospitalForm.get('hospitalName')?.invalid">
+              Hospital name is required
+            </small>
+          </div>
+
+          <!-- Address -->
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea class="form-control"
+                      formControlName="address"></textarea>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control"
+                   formControlName="phone">
+            <small class="text-danger"
+              *ngIf="hospitalForm.get('phone')?.touched &&
+                     hospitalForm.get('phone')?.invalid">
+              Enter valid 10-digit phone number
+            </small>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button"
+                  id="closeModal"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-success">
+            Save
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

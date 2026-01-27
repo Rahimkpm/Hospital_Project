@@ -1,0 +1,11 @@
+.card {
+  border-radius: 12px;
+}
+
+.card-header {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.form-label {
+  font-weight: 500;
+}

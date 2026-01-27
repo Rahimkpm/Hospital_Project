@@ -1,0 +1,81 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI';
+}
+
+.sidebar {
+  width: 220px;
+  background: #1f2d3d;
+  color: #fff;
+  padding: 20px;
+}
+
+.sidebar a {
+  display: block;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+  background: #f4f6f9;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.chat-section {
+  display: flex;
+  margin-top: 20px;
+  height: 400px;
+}
+
+.users-list {
+  width: 25%;
+  background: white;
+  border-right: 1px solid #ddd;
+}
+
+.user {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.chat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.doctor {
+  text-align: right;
+  color: #007bff;
+}
+
+.patient {
+  text-align: left;
+  color: #333;
+}
+
+.send-box {
+  display: flex;
+  padding: 10px;
+}

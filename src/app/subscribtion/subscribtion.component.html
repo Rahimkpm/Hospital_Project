@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <div class="card p-4 shadow">
+    <h3 class="mb-3">Premium Subscription</h3>
+
+    <p><strong>Plan:</strong> Premium</p>
+    <p><strong>Price:</strong> ₹999 / 30 Days</p>
+
+    <button class="btn btn-success" (click)="subscribe()">
+      Pay & Subscribe
+    </button>
+
+    <div class="alert alert-info mt-3" *ngIf="message">
+      {{ message }}
+    </div>
+  </div>
+</div>

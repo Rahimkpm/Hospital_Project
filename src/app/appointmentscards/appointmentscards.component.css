@@ -1,0 +1,53 @@
+/* Tabs container */
+.nav-tabs {
+  border-bottom: none;
+  background: #f8f9fa;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+/* Tab base style */
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  margin-right: 8px;
+  font-weight: 600;
+  color: #495057;
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.nav-tabs .nav-link:hover {
+  background: linear-gradient(135deg, #e3f2fd, #f1f8ff);
+  color: #0d6efd;
+}
+
+/* ACTIVE TAB – Gradient */
+.nav-tabs .nav-link.active {
+  color: #fff;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Optional: badge inside tab */
+.nav-tabs .nav-link .badge {
+  margin-left: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* Mobile friendly */
+@media (max-width: 576px) {
+  .nav-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .nav-tabs .nav-link {
+    margin-bottom: 4px;
+  }
+}

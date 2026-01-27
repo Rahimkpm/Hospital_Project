@@ -1,0 +1,55 @@
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- KPI Cards -->
+    <div class="col-md-3" *ngFor="let card of cards">
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <h6 class="text-muted">{{card.title}}</h6>
+          <h3>{{card.value}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="col-md-6">
+      <canvas id="appointmentsChart"></canvas>
+    </div>
+    <div class="col-md-6">
+      <canvas id="statusChart"></canvas>
+    </div>
+
+    <!-- Recent Appointments -->
+    <div class="col-md-12 mt-4">
+      <div class="card">
+        <div class="card-header">Recent Appointments</div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Patient</th>
+              <th>Doctor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ap of recentAppointments">
+              <td>{{ap.token}}</td>
+              <td>{{ap.patientName}}</td>
+              <td>{{ap.doctorName}}</td>
+              <td>
+                <span class="badge" [ngClass]="ap.isDone ? 'bg-success':'bg-warning'">
+                  {{ap.isDone ? 'Done':'Pending'}}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

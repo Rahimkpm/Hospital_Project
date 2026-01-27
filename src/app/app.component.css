@@ -1,0 +1,56 @@
+/* ================= BASE ================= */
+.sidebar {
+  width: 250px;
+  background: #212529;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1050;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-content {
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 767px) {
+  .sidebar {
+    top: 56px; /* navbar height */
+    height: calc(100vh - 56px);
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 70px;
+  }
+}
+
+/* ================= OVERLAY ================= */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1040;
+}

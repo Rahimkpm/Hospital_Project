@@ -1,0 +1,208 @@
+
+
+
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <h2 class="text-center mb-4">User Registration</h2>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <!-- Full Name -->
+        <div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-user"></i>
+    </span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Full Name or Hospital Name"
+      formControlName="fullName"
+    />
+  </div>
+
+  <div class="text-danger"
+       *ngIf="(submitted && f['fullName'].errors) ||
+              (f['fullName'].invalid && (f['fullName'].touched || f['fullName'].dirty))">
+    <div *ngIf="f['fullName'].errors?.['required']">
+      Full Name is required
+    </div>
+  </div>
+</div>
+
+
+        <!-- Email -->
+        <div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-envelope"></i>
+    </span>
+    <input
+      type="email"
+      class="form-control"
+      placeholder="Email"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="text-danger"
+       *ngIf="(submitted && f['email'].errors) ||
+              (f['email'].invalid && (f['email'].touched || f['email'].dirty))">
+    <div *ngIf="f['email'].errors?.['required']">
+      Email is required
+    </div>
+    <div *ngIf="f['email'].errors?.['email']">
+      Enter a valid email address
+    </div>
+  </div>
+</div>
+
+
+        <!-- Password -->
+       <div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-lock"></i>
+    </span>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      formControlName="password"
+    />
+  </div>
+
+  <div class="text-danger"
+       *ngIf="(submitted && f['password'].errors) ||
+              (f['password'].invalid && (f['password'].touched || f['password'].dirty))">
+    <div *ngIf="f['password'].errors?.['required']">
+      Password is required
+    </div>
+  </div>
+</div>
+
+
+        <!-- Role -->
+        <div class="mb-3">
+  <label class="form-label">Role</label>
+
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-user-tag"></i>
+    </span>
+    <select class="form-control" formControlName="role">
+      <option value="">Select Role</option>
+      <option value="Patient">Patient</option>
+      <option value="Doctor">Doctor</option>
+    </select>
+  </div>
+
+  <div class="text-danger"
+       *ngIf="(submitted && f['role'].errors) ||
+              (f['role'].invalid && (f['role'].touched || f['role'].dirty))">
+    <div *ngIf="f['role'].errors?.['required']">
+      Role is required
+    </div>
+  </div>
+</div>
+
+
+        <!-- Hospital -->
+        <!-- Hospital -->
+         
+<div class="mb-3">
+   <div class="d-flex justify-content-between align-items-center mb-1">
+    <label class="form-label mb-0">Hospital</label>
+    
+ <app-hospital>
+  *ngIf="showHospitalModal"
+  <!-- (hospitalAdded)="onHospitalAdded($event)"> -->
+</app-hospital>
+
+
+
+  </div> 
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-hospital"></i>
+    </span>
+
+    <select class="form-control"
+            formControlName="hospitalid"
+            (change)="onHospitalChange()">
+      <option value="">Select Hospital</option>
+      <option *ngFor="let h of hospitals" [value]="h.id">
+        {{ h.hospitalName }}
+      </option>
+    </select>
+
+    
+  </div>
+
+
+
+
+
+  
+  
+
+  <div class="text-danger"
+       *ngIf="(submitted && f['hospitalid'].errors) ||
+              (f['hospitalid'].invalid && (f['hospitalid'].touched || f['hospitalid'].dirty))">
+    <div *ngIf="f['hospitalid'].errors?.['required']">
+      Hospital is required
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-1">
+    <label class="form-label mb-0">Doctor</label>
+    
+
+     <app-doctor>
+  *ngIf="showDoctorModal"
+  <!-- (doctorAdded)="onDoctorAdded($event)"> -->
+</app-doctor>
+
+  </div> 
+
+        <!-- Doctor -->
+        <div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-user-doctor"></i>
+    </span>
+    <select class="form-control" formControlName="doctorid">
+      <option value="">Select Doctor</option>
+      <option *ngFor="let d of doctors" [value]="d.id">
+        {{ d.name }} -{{d.specialty}}
+      </option>
+    </select>
+  </div>
+
+  <div class="text-danger"
+       *ngIf="(submitted && f['doctorid'].errors) ||
+              (f['doctorid'].invalid && (f['doctorid'].touched || f['doctorid'].dirty))">
+    <div *ngIf="f['doctorid'].errors?.['required']">
+      Doctor is required
+    </div>
+  </div>
+ 
+</div>
+
+
+        <button class="btn btn-primary" type="submit">
+  <i class="fa-solid fa-user-plus me-2"></i>
+  Register
+</button>
+<a href="" class="btn btn-success" (click)="refresh()">Refresh</a>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+

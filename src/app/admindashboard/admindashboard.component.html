@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+  <!-- USERS -->
+  <h4>Users</h4>
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Action</th>
+    </tr>
+    <tr *ngFor="let u of users">
+      <td>{{u.fullName}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.role}}</td>
+      <td>
+        <span [class.active]="u.isActive" [class.inactive]="!u.isActive">
+          {{u.isActive ? 'Active' : 'Inactive'}}
+        </span>
+      </td>
+      <td>
+        <button class="btn btn-sm btn-warning" (click)="toggleUser(u.id)">
+          Toggle
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <!-- HOSPITALS -->
+  <h4>Hospitals</h4>
+  <ul class="list-group mb-3">
+    <li class="list-group-item" *ngFor="let h of hospitals">
+      {{h.hospitalName}} - {{h.phone}}
+    </li>
+  </ul>
+
+  <!-- DOCTORS -->
+  <h4>Doctors</h4>
+  <ul class="list-group mb-3">
+    <li class="list-group-item" *ngFor="let d of doctors">
+      {{d.name}} ({{d.specialty}}) - {{d.hospital?.hospitalName}}
+    </li>
+  </ul>
+
+  <!-- APPOINTMENTS -->
+  <h4>Appointments</h4>
+  <table class="table table-striped">
+    <tr>
+      <th>Token</th><th>Patient</th><th>Doctor</th><th>Date</th><th>Status</th>
+    </tr>
+    <tr *ngFor="let a of appointments">
+      <td>{{a.token}}</td>
+      <td>{{a.patientName}}</td>
+      <td>{{a.doctorName}}</td>
+      <td>{{a.appointmentDate | date}}</td>
+      <td>{{a.isDone}}</td>
+    </tr>
+  </table>
+
+  <!-- SUBSCRIPTIONS -->
+  <h4>Subscriptions</h4>
+  <table class="table table-bordered">
+    <tr>
+      <th>User</th><th>Plan</th><th>Amount</th><th>End Date</th>
+    </tr>
+    <tr *ngFor="let s of subscriptions">
+      <td>{{s.user?.fullName}}</td>
+      <td>{{s.planName}}</td>
+      <td>{{s.amount}}</td>
+      <td>{{s.endDate | date}}</td>
+    </tr>
+  </table>
+</div>

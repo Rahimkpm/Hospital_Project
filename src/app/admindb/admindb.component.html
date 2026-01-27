@@ -1,0 +1,43 @@
+<div class="container mt-4">
+
+  <h3 class="mb-4 text-primary">
+    <i class="fa fa-chart-line me-2"></i> Overall Dashboard
+  </h3>
+
+  <!-- KPI CARDS -->
+  <div class="row mb-4 text-center">
+    <div class="col-md-2" *ngFor="let item of [
+      {label:'Hospitals', value: summary.hospitals},
+      {label:'Doctors', value: summary.doctors},
+      {label:'Patients', value: summary.patients},
+      {label:'Appointments', value: summary.totalAppointments},
+      {label:'Completed', value: summary.completed},
+      {label:'Pending', value: summary.pending}
+    ]">
+      <div class="card shadow">
+        <div class="card-body">
+          <h6>{{ item.label }}</h6>
+          <h3>{{ item.value }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow p-3">
+        <h6 class="text-center">Appointment Status</h6>
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow p-3">
+        <h6 class="text-center">Appointments by Hospital</h6>
+        <canvas id="hospitalChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>

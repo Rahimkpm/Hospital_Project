@@ -1,0 +1,90 @@
+<div class="container mt-4">
+
+  <a  href=""
+          data-bs-toggle="modal"
+          data-bs-target="#doctorModal"
+          (click)="openModal()">
+    + Add Doctor
+</a>
+
+  <!-- Doctors Table
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Specialty</th>
+        <th>Phone</th>
+        <th>Hospital</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of doctors">
+        <td>{{ d.name }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.hospitalId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- Modal -->
+<div class="modal fade" id="doctorModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form [formGroup]="doctorForm" (ngSubmit)="submit()">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Add Doctor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label>Name</label>
+            <input class="form-control" formControlName="name">
+          </div>
+
+          <!-- Specialty -->
+          <div class="mb-3">
+            <label>Specialty</label>
+            <input class="form-control" formControlName="specialty">
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label>Phone</label>
+            <input class="form-control" formControlName="phoneNumber">
+          </div>
+
+          <!-- Hospital Dropdown -->
+          <div class="mb-3">
+            <label>Hospital</label>
+            <select class="form-select" formControlName="hospitalId">
+              <option value="">-- Select Hospital --</option>
+              <option *ngFor="let h of hospitals" [value]="h.id">
+                {{ h.hospitalName }}
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button"
+                  id="closeDoctorModal"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-success">
+            Save
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

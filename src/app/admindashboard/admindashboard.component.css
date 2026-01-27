@@ -1,0 +1,17 @@
+h4 {
+  margin-top: 30px;
+}
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.inactive {
+  color: red;
+  font-weight: bold;
+}
+
+table {
+  background: #fff;
+}

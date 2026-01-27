@@ -1,0 +1,25 @@
+/* Full background gradient */
+.login-container {
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #667eea, #764ba2); */
+}
+
+/* Card styling */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    border: none;
+    border-radius: 15px;
+}
+
+/* Input styling */
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Button hover */
+.btn-light:hover {
+    background-color: #f1f1f1;
+}

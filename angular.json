@@ -27,17 +27,22 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/font-awesome/css/font-awesome.min.css",
+      
+      "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -56,6 +61,11 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+    "ssl": false,
+    "sslKey": "ssl/localhost.key",
+    "sslCert": "ssl/localhost.crt"
+  },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -73,6 +83,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -85,12 +96,21 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/font-awesome/css/font-awesome.min.css",
+      "node_modules/ngx-toastr/toastr.css",
+      "src/styles.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
