@@ -16,7 +16,7 @@
             "outputPath": "dist/hospital-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "baseHref": "/angular-standalone-app/",
+            "baseHref": "/Hospital_Project/",
             "polyfills": [
               "zone.js"
             ],
