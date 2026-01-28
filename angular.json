@@ -16,6 +16,7 @@
             "outputPath": "dist/hospital-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/angular-standalone-app/",
             "polyfills": [
               "zone.js"
             ],
@@ -83,6 +84,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            
 
             "polyfills": [
               "zone.js",
@@ -106,6 +108,9 @@
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
