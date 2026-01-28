@@ -1,55 +1,55 @@
+<div class="container mt-4">
 
-<div class="container-fluid">
-  <div class="row">
+  <h3 class="text-primary mb-4">
+    <i class="fa fa-user-md me-2"></i> Doctor Dashboard
+  </h3>
 
-    <!-- KPI Cards -->
-    <div class="col-md-3" *ngFor="let card of cards">
-      <div class="card shadow-sm mb-3">
-        <div class="card-body">
-          <h6 class="text-muted">{{card.title}}</h6>
-          <h3>{{card.value}}</h3>
-        </div>
+  <!-- SUMMARY CARDS -->
+  <div class="row text-center">
+    <div class="col-md-3 mb-3">
+      <div class="card shadow p-3 bg-light">
+        <h6>Today's Appointments</h6>
+        <h3 class="text-primary">{{ summary.todayAppointments }}</h3>
       </div>
     </div>
 
-    <!-- Charts -->
-    <div class="col-md-6">
-      <canvas id="appointmentsChart"></canvas>
-    </div>
-    <div class="col-md-6">
-      <canvas id="statusChart"></canvas>
-    </div>
-
-    <!-- Recent Appointments -->
-    <div class="col-md-12 mt-4">
-      <div class="card">
-        <div class="card-header">Recent Appointments</div>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Token</th>
-              <th>Patient</th>
-              <th>Doctor</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let ap of recentAppointments">
-              <td>{{ap.token}}</td>
-              <td>{{ap.patientName}}</td>
-              <td>{{ap.doctorName}}</td>
-              <td>
-                <span class="badge" [ngClass]="ap.isDone ? 'bg-success':'bg-warning'">
-                  {{ap.isDone ? 'Done':'Pending'}}
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="col-md-3 mb-3">
+      <div class="card shadow p-3 bg-light">
+        <h6>Pending</h6>
+        <h3 class="text-warning">{{ summary.pending }}</h3>
       </div>
     </div>
 
+    <div class="col-md-3 mb-3">
+      <div class="card shadow p-3 bg-light">
+        <h6>Completed</h6>
+        <h3 class="text-success">{{ summary.completed }}</h3>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <div class="card shadow p-3 bg-light">
+        <h6>Total Appointments</h6>
+        <h3>{{ summary.total }}</h3>
+      </div>
+    </div>
   </div>
+
+  <!-- CHARTS -->
+  <div class="row mt-4">
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h6 class="text-center">Appointment Status</h6>
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h6 class="text-center">Weekly Trend</h6>
+        <canvas id="weeklyChart"></canvas>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-

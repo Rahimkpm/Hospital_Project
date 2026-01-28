@@ -1,36 +1,62 @@
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import Chart from 'chart.js/auto';
 
-export class DoctordashboardComponent {
-  patients: any[] = [];
-  messages: any[] = [];
-  selectedPatientId!: number;
-  doctorId = 1;
-  newMessage = '';
+@Component({
+  standalone: true,
+  selector: 'app-doctor-dashboard',
+  imports: [CommonModule],
+  templateUrl: './doctordashboard.component.html'
+})
+export class DoctordashboardComponent implements OnInit {
+
+  baseUrl = 'https://localhost:5219/api/Dcotorsdashboard';
+  doctorId = localStorage.getItem('doctorId'); // 🔐 replace with JWT doctorId
+
+  summary: any = {};
 
   constructor(private http: HttpClient) {}
 
-  selectPatient(patient: any) {
-    this.selectedPatientId = patient.id;
-    this.loadChat();
+  ngOnInit(): void {
+    this.loadSummary();
+    this.loadStatusChart();
+    this.loadWeeklyTrend();
   }
 
-  loadChat() {
-    this.http.get<any[]>(
-      `/api/chat/${this.doctorId}/${this.selectedPatientId}`
-    ).subscribe(res => this.messages = res);
+  loadSummary() {
+    this.http.get<any>(`${this.baseUrl}/summary/${this.doctorId}`)
+      .subscribe(res => this.summary = res);
   }
 
-  send() {
-    const msg = {
-      doctorId: this.doctorId,
-      patientId: this.selectedPatientId,
-      message: this.newMessage,
-      isFromDoctor: true
-    };
+  loadStatusChart() {
+    this.http.get<any>(`${this.baseUrl}/status-chart/${this.doctorId}`)
+      .subscribe(res => {
+        new Chart('statusChart', {
+          type: 'doughnut',
+          data: {
+            labels: ['Completed', 'Pending'],
+            datasets: [{
+              data: [res.completed, res.pending]
+            }]
+          }
+        });
+      });
+  }
 
-    this.http.post('/api/chat/send', msg).subscribe(() => {
-      this.newMessage = '';
-      this.loadChat();
-    });
+  loadWeeklyTrend() {
+    this.http.get<any[]>(`${this.baseUrl}/weekly-trend/${this.doctorId}`)
+      .subscribe(res => {
+        new Chart('weeklyChart', {
+          type: 'line',
+          data: {
+            labels: res.map(x => x.date),
+            datasets: [{
+              label: 'Appointments',
+              data: res.map(x => x.count)
+            }]
+          }
+        });
+      });
   }
 }

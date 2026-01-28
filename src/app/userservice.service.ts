@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { hospital } from './Models/hospital.model';
 import { doctor } from './Models/doctor.model';
 import { userregister } from './Models/userregister.model';
+import { environment } from './environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
-  private baseUrl = 'https://localhost:5219/api'; // change if needed
+  private baseUrl = environment.apiBaseUrl; // change if needed
 
 //Hospital: hospital[] = [];
   constructor(private http: HttpClient) {}

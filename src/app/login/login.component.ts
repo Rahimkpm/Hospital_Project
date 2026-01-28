@@ -31,28 +31,32 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.auth.login(this.form.value).subscribe({
-      next: res => {
-        localStorage.setItem('token', res.token);
-        debugger
-        this.auth.saveUser(res);
-        debugger;
-        if (res.role === 'Admin') {
-          this.router.navigate(['/admindashboard']);
+  this.auth.login(this.form.value).subscribe({
+    next: (res: any) => {
+      // success response
+      localStorage.setItem('token', res.token);
+      this.auth.saveUser(res);
 
-          //this.router.navigate(['/appointmentscards']);
-        } else if (res.role === 'Doctor') {
-          //this.router.navigate(['/doctordashboard']);
-          
-           this.router.navigate(['/appointments/hospital/' + this.hid + '/doctor/' + this.did]).then(() => {
-            window.location.reload();
-          });
-        } else {
-          this.router.navigate(['/patientdashboard']);
-        }
+      if (res.role === 'Admin') {
+        this.router.navigate(['/admindashboard']);
+      } 
+      else if (res.role === 'Doctor') {
+        this.router
+          .navigate(['/appointments/hospital/' + this.hid + '/doctor/' + this.did])
+          .then(() => window.location.reload());
+      } 
+      else {
+        this.router.navigate(['/patientdashboard']);
       }
-    });
-  }
+    },
+
+    error: (err) => {
+      // ❌ invalid email or password
+      alert('Invalid Credentials');
+    }
+  });
+}
+
 
 
 }

@@ -62,7 +62,7 @@
         },
         "serve": {
           "options": {
-    "ssl": false,
+    "ssl": true,
     "sslKey": "ssl/localhost.key",
     "sslCert": "ssl/localhost.crt"
   },
