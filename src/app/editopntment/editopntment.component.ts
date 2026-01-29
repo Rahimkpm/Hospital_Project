@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { environment } from '../environment.prod';
+import { environment } from '../environment';
 
 @Component({
   selector: 'app-editopntment',

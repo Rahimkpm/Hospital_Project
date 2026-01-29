@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { pipe } from 'rxjs';
 import { CommonModule, DatePipe } from '@angular/common';
-import { environment } from '../environment.prod';
+import { environment } from '../environment';
 
 @Component({
   selector: 'app-admin-dashboard',

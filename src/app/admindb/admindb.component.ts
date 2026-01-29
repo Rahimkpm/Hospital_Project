@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import Chart from 'chart.js/auto';
-import { environment } from '../environment.prod';
+import { environment } from '../environment';
 
 @Component({
   standalone: true,
