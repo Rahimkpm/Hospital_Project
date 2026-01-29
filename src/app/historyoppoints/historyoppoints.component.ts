@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { environment } from '../environment.prod';
 
 @Component({
   selector: 'app-historyoppoints',
@@ -13,7 +14,7 @@ export class HistoryoppointsComponent {
 
 appointment: any;
   history: any[] = [];
-  baseUrl = 'https://localhost:5219/api/appointments';
+  baseUrl = environment.apiBaseUrl + '/appointments';
 
   constructor(
     private route: ActivatedRoute,

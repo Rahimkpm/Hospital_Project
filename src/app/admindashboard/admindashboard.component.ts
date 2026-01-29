@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { pipe } from 'rxjs';
 import { CommonModule, DatePipe } from '@angular/common';
+import { environment } from '../environment.prod';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -17,7 +18,7 @@ export class AdmindashboardComponent implements OnInit {
   appointments: any[] = [];
   subscriptions: any[] = [];
 
-  api = 'https://localhost:5219/api/admin';
+  api = environment.apiBaseUrl + '/admin';
 
   constructor(private http: HttpClient) {}
 

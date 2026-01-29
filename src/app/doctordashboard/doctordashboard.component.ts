@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import Chart from 'chart.js/auto';
+import { environment } from '../environment.prod';
 
 @Component({
   standalone: true,
@@ -11,7 +12,7 @@ import Chart from 'chart.js/auto';
 })
 export class DoctordashboardComponent implements OnInit {
 
-  baseUrl = 'https://localhost:5219/api/Dcotorsdashboard';
+  baseUrl = environment.apiBaseUrl + '/Doctorsdashboard';
   doctorId = localStorage.getItem('doctorId'); // 🔐 replace with JWT doctorId
 
   summary: any = {};

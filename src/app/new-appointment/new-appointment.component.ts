@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { ToastService } from '../toast.service';
 import { AuthService } from '../auth.service';
+import { environment } from '../environment';
 
 @Component({
   selector: 'app-new-appointment',
@@ -17,8 +18,8 @@ import { AuthService } from '../auth.service';
 
 export class NewAppointmentComponent implements OnInit {
   constructor(private http: HttpClient,private router:Router) { }
- 
-  private baseurl: any = 'https://localhost:5219/api'
+
+  private baseurl: any = environment.apiBaseUrl;
   hospitals: any[] = [];
   doctors: any[] = [];
 patients:any[]=[];

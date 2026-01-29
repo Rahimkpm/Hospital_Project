@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { hospital } from './Models/hospital.model';
+import { environment } from './environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
-
+ 
   constructor( private http: HttpClient) { }
- private baseurl:any='https://localhost:5219/api'
+ private baseurl:any=environment.apiBaseUrl;
   createAppointment(obj: any) {
     // Logic to send appointmentData to the backend API
-    return this.http.post('https://localhost:5219/api/appointments', obj);
+    return this.http.post(`${this.baseurl}/appointments`, obj);
     debugger;
     console.log('Appointment Data:', obj);
   }
@@ -19,7 +20,7 @@ export class ServicesService {
   loadHospitals() {
     // this.http.get<any[]>(`${this.baseurl}/hospitals`)
     //   .subscribe(res => this.hospitals = res);
-      return this.http.get<any[]>('https://localhost:5219/api/hospitals');
+      return this.http.get<any[]>(`${this.baseurl}/hospitals`);
       debugger;
       console.log('load hospitals called');
       
@@ -36,7 +37,7 @@ export class ServicesService {
 
   save(data: any,id:number) {
   return this.http.post(
-    `https://localhost:5219/api/Appointments/${id}`,
+    `${this.baseurl}/Appointments/${id}`,
     data
   );
 }

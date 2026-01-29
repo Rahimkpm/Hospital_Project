@@ -15,8 +15,8 @@ export class SubscribtionComponent {
   subscription = {
     userId: Number(localStorage.getItem('userId')),
     planName: 'Premium',
-    amount: 999,
-    durationInDays: 30
+    amount: 600,
+    durationInDays: 60
   };
 
   message = '';

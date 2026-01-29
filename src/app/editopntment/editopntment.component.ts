@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { environment } from '../environment.prod';
 
 @Component({
   selector: 'app-editopntment',
@@ -16,7 +17,7 @@ import { AuthService } from '../auth.service';
 
 export class editopnmentComponent implements OnInit {
   constructor(private http: HttpClient,private router: Router,private route: ActivatedRoute,private fb: FormBuilder) { }
-  private baseurl: any = 'https://localhost:5219/api'
+  private baseurl: any =   environment.apiBaseUrl;
   hospitals: any[] = [];
   doctors: any[] = [];
   appointmentId=0;

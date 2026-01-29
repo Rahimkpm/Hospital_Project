@@ -6,6 +6,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Appointment } from '../Models/appointment.model';
 import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environment.prod';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class AppointmentscardsComponent implements OnInit {
     Authorization: `Bearer ${this.token}`
   });
 
-  baseUrl = 'https://localhost:5219/api';
+  baseUrl = environment.apiBaseUrl;
 
   auth = inject(AuthService);
 
