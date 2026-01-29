@@ -1,9 +1,12 @@
 
 
+ 
 
 <div class="container min-vh-60 d-flex align-items-center justify-content-center">
+   <div class="card p-4 shadow w-100" style="max-width: 720px;">
+    
   <div class="row w-100 justify-content-center">
-    <div class="col-md-6 col-lg-5">
+    <div class="col-md-12 ">
       <h2 class="text-center mb-4">User Registration</h2>
 
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -191,17 +194,19 @@
  
 </div>
 
-
-        <button class="btn btn-primary" type="submit">
+<div class="d-flex gap-2">
+        <button class="btn btn-primary w-100" type="submit">
   <i class="fa-solid fa-user-plus me-2"></i>
   Register
 </button>
 <a href="" class="btn btn-success" (click)="refresh()">Refresh</a>
-
+</div>
       </form>
     </div>
   </div>
+  </div>
 </div>
+
 
 
 

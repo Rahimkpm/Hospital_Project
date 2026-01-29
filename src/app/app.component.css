@@ -10,6 +10,10 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.custom-green {
+  background-color: #198754; /* Bootstrap success green */
+}
+
 .main-content {
   padding: 20px;
   background: #f8f9fa;
