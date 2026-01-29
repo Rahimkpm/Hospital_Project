@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:prod": "ng build --configuration production --base-href /Hospitalproject/",
-  "deploy": "gh-pages -d dist/Hospitalproject"
+    "deploy": "gh-pages -d dist/Hospitalproject"
   },
   "private": true,
   "dependencies": {
