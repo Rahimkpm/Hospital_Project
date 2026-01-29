@@ -19,8 +19,8 @@ email=localStorage.getItem('email');
 auths=inject(AuthService);
   plan = {
     name: 'Premium',
-    amount: 999,
-    durationDays: 30
+    amount: 600,
+    durationDays: 60
   };
 
   constructor(private payService: PaymentService,private router:Router) {}
