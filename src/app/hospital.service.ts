@@ -9,6 +9,7 @@ import { environment } from './environment';
   providedIn: 'root'
 })
 export class HospitalService {
+  
 
   private apiUrl = environment.apiBaseUrl + '/hospitals'; // change as per API
 
