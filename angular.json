@@ -13,10 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/Hospitalproject",
+            "outputPath": "dist/Hospital_Project",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "baseHref": "/Hospitalproject/",
+            "baseHref": "/Hospital_Project/",
             "polyfills": [
               "zone.js"
             ],
