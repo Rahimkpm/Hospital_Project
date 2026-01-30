@@ -12,7 +12,7 @@ import { environment } from '../environment';
 })
 export class DoctordashboardComponent implements OnInit {
 
-  baseUrl = environment.apiBaseUrl + '/Doctorsdashboard';
+  baseUrl = environment.apiBaseUrl+'/Dcotorsdashboard';
   doctorId = localStorage.getItem('doctorId'); // 🔐 replace with JWT doctorId
 
   summary: any = {};

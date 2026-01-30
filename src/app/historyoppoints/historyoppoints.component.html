@@ -34,21 +34,24 @@
       <i class="fa fa-history me-2"></i> Previous Treatment History
     </div>
 
-    <div class="card-body" *ngIf="history.length > 0; else noHistory">
+    <div class="card-body" *ngIf="history.length > 0;">
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let h of history">
           <strong>Date:</strong> {{ h.appointmentDate | date }} <br>
           <strong>Reason:</strong> {{ h.reason }} <br>
-          <strong>Doctor:</strong> {{ h.doctorName }}
+          <strong>Doctor:</strong> {{ h.doctorName }} <br>
+          <strong>Doctor Notes:</strong> {{ h.doctorNotes }}  <br>
+          <strong>Patient Name:</strong> {{ appointment.patient.name }}
+
         </li>
       </ul>
     </div>
 
-    <ng-template #noHistory>
+    <!-- <ng-template #noHistory>
       <div class="card-body text-muted">
         No previous treatment history found.
       </div>
-    </ng-template>
+    </ng-template> -->
   </div>
 
 </div>

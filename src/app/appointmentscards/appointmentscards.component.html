@@ -21,14 +21,15 @@
   </div>
 <div>
   <form [formGroup]="hospitalSearchForm">
-      <input (blur)="textboxonblur()"
-        type="text"
-        class="form-control mb-3"
-        placeholder="Search by Patient Name  or Phone Number" 
-        formControlName="searchTextbox"
-        
-      />
-    </form>
+  <!-- <input
+    type="text"
+    class="form-control mb-3"
+    placeholder="Search by Patient Name or Phone Number"
+    formControlName="searchTextbox"
+    (blur)="textboxonblur()"
+  /> -->
+</form>
+
 </div>
 <p> Search Text: {{searchText}} </p>
 

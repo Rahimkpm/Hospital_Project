@@ -26,9 +26,15 @@ appointment: any;
 
     this.http.get<any>(`${this.baseUrl}/${id}/details`)
       .subscribe(res => {
+        debugger;
+        console.log('result',res);
         this.appointment = res.appointment;
+        debugger;
         this.history = res.previousHistory;
+        console.log('history',res.previousHistory);
+        debugger;
       });
   }
+
 
 }
