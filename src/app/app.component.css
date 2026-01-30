@@ -14,6 +14,10 @@
   background-color: #198754; /* Bootstrap success green */
 }
 
+.custom-blue {
+  background-color: #063375; /* Bootstrap success green */
+}
+
 .main-content {
   padding: 20px;
   background: #f8f9fa;
