@@ -10,4 +10,5 @@ export interface Appointment {
   doctorName: string;
   hospitalName: string;
   doctorNotes:string;
+  token:number;
 }

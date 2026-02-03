@@ -18,8 +18,22 @@
   background-color: #063375; /* Bootstrap success green */
 }
 
+
+.menu-btn {
+  background-color: #063375; /* blue */
+  border: none;
+
+}
+
+.menu-btn i {
+  color: #ffffff; /* white bars */
+  font-size: 20px;
+}
+
+
+
 .main-content {
-  padding: 20px;
+  padding: 0px;
   background: #f8f9fa;
   min-height: 100vh;
 }

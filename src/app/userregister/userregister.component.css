@@ -1,0 +1,10 @@
+.btn {
+    display: inline-block;
+    background: #ffeb3b;
+    color: #333;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}

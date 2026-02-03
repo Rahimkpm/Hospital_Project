@@ -1,3 +1,5 @@
+
+
 .card {
   border-radius: 12px;
 }
@@ -8,4 +10,13 @@
 
 .form-label {
   font-weight: 500;
+}
+
+.token-big {
+  font-size: 100px;
+  font-weight: bold;
+  color: #198754;
+  display: block;
+  margin-top: 8px;
+  text-align: center;
 }

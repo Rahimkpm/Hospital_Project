@@ -74,10 +74,12 @@ export class DoctorComponent implements OnInit {
       next: () => {
         this.loadDoctors();
         alert('Doctor added successfully');
-        this.router.navigate(['/userregister']);
+        this.router.navigate(['/userregister']).then(()=>{window.location.reload()});
         document.getElementById('closeDoctorModal')?.click();
       },
-      error: err => console.error(err)
+      error:()  =>{
+        alert('Doctor all ready added, check once ');
+      } 
     });
   }
 }

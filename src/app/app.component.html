@@ -1,13 +1,41 @@
+
+<html>
+  <head>
+
+
+    <!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  </head>
+  <body>
+
 <!-- ================= MOBILE TOP NAVBAR ================= -->
 <nav class="navbar navbar-dark custom-green d-md-none fixed-top">
   <div class="container-fluid">
-    <button class="btn btn-dark" (click)="toggleSidebar()">
-      <i class="fa fa-bars fa-lg"></i>
-    </button>
+
+  <button class="btn menu-btn" (click)="toggleSidebar()">
+  <i class="fa fa-bars fa-lg"></i>
+</button>
 
     <span class="navbar-brand ms-2">
-      <i class="fa fa-hospital me-1"></i> {{ HospitalName }}
+      <i class="fas fa-hospital fa-2x mb-2"></i> {{ HospitalName }}
     </span>
+
+
+<span class="navbar-brand ms-2 d-flex align-items-center">
+  <img
+    src="tokenflow-logo.png"
+    alt="Hospital Logo"
+    width="40"
+    height="40"
+    class="me-2"
+  />
+ 
+</span>
+
   </div>
 </nav>
 
@@ -39,6 +67,12 @@
 
       <li class="nav-item" *ngIf="auth.getRole() === 'Admin'">
         <a class="nav-link text-white" routerLink="/Hospitals" (click)="closeSidebar()">
+          <i class="fa fa-hospital me-2"></i> Hospitals
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="auth.getRole() === 'Admin'">
+        <a class="nav-link text-white" routerLink="/admindashboard" (click)="closeSidebar()">
           <i class="fa fa-hospital me-2"></i> Hospitals
         </a>
       </li>
@@ -86,6 +120,13 @@
         </a>
       </li>
 
+
+       <li class="nav-item" >
+        <a class="nav-link text-white" routerLink="/helpdesk" (click)="closeSidebar()">
+          <i class="fa fa-gauge me-2"></i> Help Desk
+        </a>
+      </li>
+
       <hr class="text-secondary my-2">
 
       <li class="nav-item">
@@ -118,3 +159,8 @@
   </div>
 
 </div>
+
+
+
+  </body>
+</html>

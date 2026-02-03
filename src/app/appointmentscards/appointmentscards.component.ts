@@ -65,6 +65,7 @@ export class AppointmentscardsComponent implements OnInit {
       //this.getAppointments(this.hospitalId, this.doctorId,this.datePipe.transform(this.TodayDate, 'yyyy-MM-dd')!);
       //this.getAppointments(this.hospitalId, this.doctorId);
       this.loadAppointments(this.activeTab, this.searchText);
+      setInterval(() => this.loadAppointments(this.activeTab, this.searchText), 30000); // auto refresh
     }
 
 this.hospitalSearchForm = this.fb.group({

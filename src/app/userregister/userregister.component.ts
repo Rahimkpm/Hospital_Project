@@ -113,7 +113,7 @@ openDoctorModal() {
         },
         error: err => {
           console.error(err);
-          alert('Registration failed, check either duplication.');
+          alert('Click on Refresh or check either duplication.');
         }
       });
   }

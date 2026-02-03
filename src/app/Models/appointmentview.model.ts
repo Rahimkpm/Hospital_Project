@@ -9,6 +9,6 @@ isDone:string;
   doctorName: string;
   hospitalName: string;
   doctorNotes:string;
-  token:string;
+  token:number;
   
 }

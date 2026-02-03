@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { hospital } from './Models/hospital.model';
 import { environment } from './environment';
+import { Appointmentview } from './Models/appointmentview.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,7 @@ export class ServicesService {
   }
 
   save(data: any,id:number) {
-  return this.http.post(
+  return this.http.post<Appointmentview>(
     `${this.baseurl}/Appointments/${id}`,
     data
   );

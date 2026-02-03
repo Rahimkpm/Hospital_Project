@@ -8,6 +8,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ToastService } from '../toast.service';
 import { AuthService } from '../auth.service';
 import { environment } from '../environment';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-new-appointment',
@@ -52,6 +53,7 @@ patientojb:any={
       isDone:'false',
     doctorId: 0,
     hospitalId: 0,
+    token:0,
     doctorNotes:'temparature:        Blood Pressure:       Heart Rate:        Symptoms:        Diagnosis:             Prescription:          Follow-up:'
     
     
@@ -64,14 +66,28 @@ patientojb:any={
 // }
 
 
+showSuccess() {
+    this.toast.success('Saved successfully!');
+  }
+
 saveappointment(){
    // if (this.form.invalid) return;
 debugger;
     this.services.save(this.appintmentobj,this.appintmentobj.apid).subscribe({
       next: (res) => {
-        alert('Appointment created successfully');
-        this.router.navigate(['/appointments']);
-        this.toast.success('Appointment booked successfully','tiltle');
+        const generatedToken = res.token;
+
+        //alert('Appointment created successfully. TOKEN NO:'+res.token);
+        
+       // this.toast.success('Appointment booked, TOKEN NO:'+res.token,'TOKEN');
+
+this.toast.success(
+  `Appointment booked<br>
+   <span class="token-big">TOKEN NO: ${res.token}</span>`,
+  'TOKEN'
+);
+       
+        this.router.navigate(['/NewAppointment']);
         this.appintmentobj = {
           apid: 0,
           patientid: 0,
@@ -83,6 +99,7 @@ debugger;
             isDone:'false',
           doctorId: 0,
           hospitalId: 0,
+          token:0,
           doctorNotes:'temparature:        Blood Pressure:       Heart Rate:        Symptoms:        Diagnosis:             Prescription:          Follow-up:'
         };
 

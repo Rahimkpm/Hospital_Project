@@ -21,6 +21,7 @@ import { UserregisterComponent } from './userregister/userregister.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { AdmindbComponent } from './admindb/admindb.component';
+import { HelpdeskComponent } from './helpdesk/helpdesk.component';
 
 
 
@@ -107,6 +108,10 @@ export const routes: Routes = [
     {
         path:'admindb',
         component:AdmindbComponent
+    },
+    {
+        path:'helpdesk',
+        component:HelpdeskComponent
     }
     
 

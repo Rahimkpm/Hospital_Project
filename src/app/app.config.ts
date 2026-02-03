@@ -9,7 +9,23 @@ import { provideToastr, ToastrModule } from 'ngx-toastr';
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes,withHashLocation()),HttpClient,
-    provideHttpClient(withInterceptors([spinnerInterceptor])),provideAnimations(), provideToastr()
-    ],
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+
+    provideRouter(routes, withHashLocation()),
+
+    provideHttpClient(
+      withInterceptors([spinnerInterceptor])
+    ),
+
+    provideAnimations(),
+
+    provideToastr({
+      enableHtml: true,
+      timeOut: 10000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+      closeButton: true
+    })
+  ]
 };

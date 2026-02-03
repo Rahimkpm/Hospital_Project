@@ -34,7 +34,7 @@ did=this.auths.getDoctorId();
     }).subscribe((order: any) => {
 debugger;
       const options = {
-        key: 'rzp_test_S5dSTtkPQxynUP',
+        key: 'rzp_live_SBJE2JGafJp5wd',
         amount: order.amount,
         currency: 'INR',
         name: 'Hospital App',
